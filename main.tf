@@ -51,6 +51,19 @@ resource "aws_cloudfront_distribution" "s3_static_distribution" {
     }
   }
   
+  default_cache_behavior {
+    allowed_methods  = ["DELETE", "GET", "HEAD", "OPTIONS", "PATCH", "POST", "PUT"]
+    cached_methods   = ["GET", "HEAD"]
+    target_origin_id = aws_cloudfront_distribution.s3_static_distribution.origin_id
+
+    forwarded_values {
+      query_string = false
+
+      cookies {
+        forward = "none"
+      }
+    }
+
   enabled             = true
   is_ipv6_enabled     = true
   comment             = "CloudFront distribution for static website hosted in S3"
