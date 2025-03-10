@@ -28,11 +28,6 @@ resource "aws_s3_bucket_website_configuration" "s3_bucket_static_config" {
   }
 }
 
-data "aws_acm_certificate" "acm_cert" {
-  domain   = "pahardy.com" # Replace with your domain
-  statuses = ["ISSUED"]
-  most_recent = true
-}
 
 # Create CloudFront Distribution
 resource "aws_cloudfront_distribution" "s3_distribution" {
@@ -65,7 +60,7 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
 
   # Use an SSL certificate from ACM (Optional)
   viewer_certificate {
-    acm_certificate_arn = data.aws_acm_certificate.acm_cert
+    acm_certificate_arn = arn:aws:acm:us-east-1:862980915839:certificate/3519496f-4902-43d0-8b12-7d0b1f3d5b4c
   }
 
   restrictions {
