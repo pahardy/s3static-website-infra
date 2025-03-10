@@ -15,8 +15,8 @@ provider "aws" {
 }
 
 resource "aws_s3_bucket" "static-s3-site" {
-  bucket = variable.bucket_name
-  region = variable.region
+  bucket = "statics3sitemarch10tf"
+  region = "us-east-1"
 
   tags = {
     Environment = variable.environment
