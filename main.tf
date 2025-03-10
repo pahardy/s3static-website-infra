@@ -11,7 +11,7 @@ terraform {
 
 # Configure the AWS Provider
 provider "aws" {
-  region = variable.region
+  region = "us-east-1"
 }
 
 resource "aws_s3_bucket" "static-s3-site" {
