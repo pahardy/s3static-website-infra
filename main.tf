@@ -1,5 +1,3 @@
-#Create S3 bucket to host the static website
-
 terraform {
   required_providers {
     aws = {
