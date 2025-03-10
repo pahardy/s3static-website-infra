@@ -82,4 +82,5 @@ resource "aws_cloudfront_distribution" "s3_static_distribution" {
     minimum_protocol_version = "TLSv1.2_2021"
   }
 }
+}
 
