@@ -61,6 +61,7 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
   # Use an SSL certificate from ACM (Optional)
   viewer_certificate {
     acm_certificate_arn = "arn:aws:acm:us-east-1:862980915839:certificate/3519496f-4902-43d0-8b12-7d0b1f3d5b4c"
+    ssl_support_method = sni-only
   }
 
   restrictions {
