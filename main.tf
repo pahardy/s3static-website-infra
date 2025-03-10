@@ -43,6 +43,13 @@ resource "aws_cloudfront_distribution" "s3_static_distribution" {
 
   aliases = ["sdelements.pahardy.com"]
   price_class = "PriceClass_100"
+
+  restrictions {
+    geo_restriction {
+      restriction_type = "whitelist"
+      locations        = ["US", "CA", "GB", "DE"]
+    }
+  }
   
   enabled             = true
   is_ipv6_enabled     = true
