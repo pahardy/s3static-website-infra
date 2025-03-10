@@ -19,6 +19,6 @@ resource "aws_s3_bucket" "static-s3-site" {
   region = "us-east-1"
 
   tags = {
-    Environment = variable.environment
+    Environment = "Prod"
   }
 }
