@@ -19,7 +19,6 @@ resource "aws_s3_bucket" "static-s3-site" {
   region = variable.region
 
   tags = {
-    Name        = "StaticSiteBucket"
     Environment = variable.environment
   }
 }

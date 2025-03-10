@@ -1,7 +1,7 @@
 variable "bucket_name" {
     description = "Name of the S3 bucket that will host the static site"
     type = string
-    default = "ss3staticwebmarch10tf"
+    default = "s3staticwebmarch10tf"
 }
 
 variable "region" {
