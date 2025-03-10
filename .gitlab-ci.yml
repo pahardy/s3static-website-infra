@@ -2,18 +2,18 @@ stages:
   - create-bucket-stage
   - create-cloudfront-deployment-stage
 
-  create-bucket-job:
-    - stage: create-bucket-stage
-    - tags:
-        - s3
-        - static
-    before_script:
-        #- aws configure set aws_default_region $AWS_DEFAULT_REGION
-        #- aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
-        #- aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
-        #- aws configure set aws_session_token $AWS_SESSION_TOKEN
-      - aws s3 ls # confirm access to S3
-    script:
-      - terraform init
-      - terraform plan
-      - terraform apply --auto-approve
+create-bucket-job:
+  stage: create-bucket-stage
+  tags:
+    - s3
+    - static
+  before_script:
+    #- aws configure set aws_default_region $AWS_DEFAULT_REGION
+    #- aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
+    #- aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
+    #- aws configure set aws_session_token $AWS_SESSION_TOKEN
+    - aws s3 ls # confirm access to S3
+  script:
+    - terraform init
+    - terraform plan
+    - terraform apply --auto-approve
