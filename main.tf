@@ -21,7 +21,7 @@ resource "aws_s3_bucket" "static-s3-site" {
 }
 
 resource "aws_s3_bucket_website_configuration" "s3_bucket_static_config" {
-  bucket = aws_s3_bucket.static-s3-site
+  bucket = aws_s3_bucket.static-s3-site.name
 
   index_document {
     suffix = "index.html"
