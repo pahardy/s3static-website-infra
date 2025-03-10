@@ -41,6 +41,11 @@ resource "aws_cloudfront_distribution" "s3_static_distribution" {
     origin_id                = "myS3origin"
   }
 
+
+  enabled             = true
+  is_ipv6_enabled     = true
+  comment             = "CloudFront distribution for static website hosted in S3"
+  default_root_object = "index.html"
   aliases = ["sdelements.pahardy.com"]
   price_class = "PriceClass_100"
 
@@ -63,11 +68,6 @@ resource "aws_cloudfront_distribution" "s3_static_distribution" {
         forward = "none"
       }
     }
-
-  enabled             = true
-  is_ipv6_enabled     = true
-  comment             = "CloudFront distribution for static website hosted in S3"
-  default_root_object = "index.html"
 
   logging_config {
     include_cookies = false
