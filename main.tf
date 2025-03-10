@@ -16,7 +16,6 @@ provider "aws" {
 
 resource "aws_s3_bucket" "static-s3-site" {
   bucket = "statics3sitemarch10tf"
-  region = "us-east-1"
 
   tags = {
     Environment = "Prod"
