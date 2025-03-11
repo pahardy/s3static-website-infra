@@ -21,6 +21,7 @@ resource "aws_s3_bucket" "static-s3-site" {
   }
 }
 
+#Create bucket policy to allow CloudFront to access it
 resource "aws_s3_bucket_policy" "static_website_policy" {
   bucket = aws_s3_bucket.static-s3-site.id
   policy = jsonencode({
