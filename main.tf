@@ -12,6 +12,7 @@ provider "aws" {
   region = "us-east-1"
 }
 
+#Create an S3 bucket
 resource "aws_s3_bucket" "static-s3-site" {
   bucket = "statics3sitemarch10tf"
 
@@ -20,10 +21,4 @@ resource "aws_s3_bucket" "static-s3-site" {
   }
 }
 
-resource "aws_s3_bucket_website_configuration" "s3_bucket_static_config" {
-  bucket = aws_s3_bucket.static-s3-site.bucket
-
-  index_document {
-    suffix = "index.html"
-  }
-}
+#Create a CloudFront distribution
