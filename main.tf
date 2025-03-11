@@ -21,7 +21,7 @@ resource "aws_s3_bucket" "static-s3-site" {
   }
 }
 
-Create a CloudFront Origin Access Control configuration
+#Create a CloudFront Origin Access Control configuration
 resource "aws_cloudfront_origin_access_control" "s3_static_cloudfront_oac" {
   name                              = "s3_static_oac"
   description                       = "Policy for CloudFront with S3 source"
@@ -30,7 +30,7 @@ resource "aws_cloudfront_origin_access_control" "s3_static_cloudfront_oac" {
   signing_protocol                  = "sigv4"
 }
 
-Create a CloudFront distribution
+#Create a CloudFront distribution
 resource "aws_cloudfront_distribution" "s3_distribution" {
   origin {
     domain_name              = aws_s3_bucket.static-s3-site.bucket_regional_domain_name
