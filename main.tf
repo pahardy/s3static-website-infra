@@ -21,6 +21,28 @@ resource "aws_s3_bucket" "static-s3-site" {
   }
 }
 
+resource "aws_s3_bucket_policy" "static_website_policy" {
+  bucket = aws_s3_bucket.static-s3-site.id
+  policy = jsonencode({
+    Version = "2012-10-17",
+    Statement = [
+      {
+        Effect = "Allow",
+        Principal = {
+          Service = "cloudfront.amazonaws.com"
+        },
+        Action = "s3:GetObject",
+        Resource = "${aws_s3_bucket.static-s3-site.arn}/*",
+        Condition = {
+          StringEquals = {
+            "AWS:SourceArn" = aws_cloudfront_distribution.s3_distribution.arn
+          }
+        }
+      }
+    ]
+  })
+}
+
 #Create a CloudFront Origin Access Control configuration
 resource "aws_cloudfront_origin_access_control" "s3_static_cloudfront_oac" {
   name                              = "s3_static_oac"
