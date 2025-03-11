@@ -44,13 +44,13 @@ resource "aws_s3_bucket_policy" "static_website_policy" {
 }
 
 #Create a CloudFront Origin Access Control configuration
-#resource "aws_cloudfront_origin_access_control" "s3_static_cloudfront_oac" {
-#  name                              = "s3_static_oac"
-#  description                       = "Policy for CloudFront with S3 source"
-#  origin_access_control_origin_type = "s3"
-#  signing_behavior                  = "always"
-#  signing_protocol                  = "sigv4"
-#}
+resource "aws_cloudfront_origin_access_control" "s3_static_cloudfront_oac" {
+  name                              = "s3_static_oac"
+  description                       = "Policy for CloudFront with S3 source"
+  origin_access_control_origin_type = "s3"
+  signing_behavior                  = "always"
+  signing_protocol                  = "sigv4"
+}
 
 #Create a CloudFront distribution
 resource "aws_cloudfront_distribution" "s3_distribution" {
