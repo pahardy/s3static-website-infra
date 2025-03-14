@@ -1,13 +1,13 @@
 stages:
-  - create-bucket-stage
-  - create-cloudfront-deployment-stage
+  - create-infra-stage
 
 create-bucket-job:
-  stage: create-bucket-stage
+  stage: create-infrat-stage
   tags:
     - s3
     - static
   before_script:
+    # commented out values not valid in my environment, I need to populate these intermittently
     #- aws configure set aws_default_region $AWS_DEFAULT_REGION
     #- aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
     #- aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
