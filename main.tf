@@ -98,3 +98,16 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
     minimum_protocol_version = "TLSv1.2_2021"
   }
 }
+
+#Create a Route53 record to match the CloudFront Distribution 
+resource "aws_route53_record" "example" {
+  zone_id = aws_route53_zone.example.zone_id  # Hosted zone ID for pahardy.com
+  name    = "sdelements.pahardy.com"                     # Custom domain name
+  type    = "A"                               # Alias A record for CloudFront
+
+  alias {
+    name                   = aws_cloudfront_distribution.s3_distribution.domain_name  # CloudFront domain name
+    zone_id                = aws_cloudfront_distribution.s3_distribution.hosted_zone_id  # CloudFront hosted zone ID
+    evaluate_target_health = false
+  }
+}
