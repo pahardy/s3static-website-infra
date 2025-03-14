@@ -102,7 +102,7 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
 
 #Create a Route53 record to match the CloudFront Distribution 
 resource "aws_route53_record" "route53cloudfrontrecord" {
-  zone_id = aws_route53_zone.Z0002250EQNVJDG0W64V.zone_id  # Hosted zone ID for pahardy.com
+  zone_id  = "Z0002250EQNVJDG0W64V"  # Hosted zone ID for pahardy.com
   name    = "sdelements.pahardy.com"                     # Custom domain name
   type    = "A"                               # Alias A record for CloudFront
 
