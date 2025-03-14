@@ -55,8 +55,8 @@ resource "aws_cloudfront_origin_access_control" "s3_static_cloudfront_oac" {
 
 #Acquire the hosted zone name
 data "aws_route53_zone" "pahardy" {
-  name         = "pahardy.com"
-  private_zone = true  
+  name         = "pahardy.com."
+  private_zone = false  
 }
 
 
