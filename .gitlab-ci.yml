@@ -2,7 +2,7 @@ stages:
   - create-infra-stage
 
 create-bucket-job:
-  stage: create-infrat-stage
+  stage: create-infra-stage
   tags:
     - s3
     - static
