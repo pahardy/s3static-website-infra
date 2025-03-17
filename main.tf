@@ -14,10 +14,10 @@ provider "aws" {
 
 #Create an S3 bucket
 resource "aws_s3_bucket" "static-s3-site" {
-  bucket = "statics3sitemarch11tf"
+  bucket = var.bucket_name
 
   tags = {
-    Environment = "Prod"
+    Environment = var.environment
   }
 }
 
